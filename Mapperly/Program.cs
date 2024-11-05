@@ -1,6 +1,15 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Riok.Mapperly.Abstractions;
 
-using Riok.Mapperly.Abstractions;
+var car = new Car
+{
+    Brand = "Audi",
+    Model = "Q7"
+};
+
+var mapper = new Mapper();
+var dto = mapper.Map(car, "foo");
+
+Console.WriteLine($"{dto.Brand}, {dto.Model}, {dto.Name}");
 
 public class Car
 {
@@ -18,3 +27,4 @@ public class CarDto
 public partial class Mapper {
     public partial CarDto Map(Car source, string name);
 }
+
